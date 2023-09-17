@@ -1,38 +1,59 @@
-# create-svelte
+# Svelte Web Scraping Project
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This project is a web application built using [Svelte](https://svelte.dev/) that scrapes GitHub user contributions data and displays it in a user-friendly format. It serves as a demonstration of web scraping and data visualization using Svelte.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Web Scraping**: The application scrapes the GitHub contributions calendar data for a specified user.
+- **Data Visualization**: Contributions data is visualized using a customizable heatmap.
+- **Responsive Design**: The app is designed to work on both desktop and mobile devices.
+- **GitHub API Integration**: The app uses the GitHub API to fetch user information.
+- **Customization**: Users can customize the heatmap's appearance and behavior.
+- **Interactive**: Users can interact with the heatmap to view contributions details.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Getting Started
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+To get started with this project, follow these steps:
 
-## Developing
+1. **Clone the Repository**:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+   ```
+   git clone https://github.com/shubhamm69/svelte-webscraping.git
+   cd svelte-webscraping
+   ```
 
-```bash
-npm run dev
+2. **Install Dependencies**:
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+   ```
+   pnpm i
+   ```
 
-## Building
+3. **Run the Development Server**:
 
-To create a production version of your app:
+   ```
+   pnpm run dev
+   ```
 
-```bash
-npm run build
-```
+   This will start a development server, and you can view the app by opening a web browser and navigating to `http://localhost:5000`.
 
-You can preview the production build with `npm run preview`.
+## Usage
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+1. **Enter GitHub Username**: On the app's home page, enter the GitHub username for which you want to fetch contributions data.
+
+2. **Customize Heatmap**: Use the customization options to adjust the heatmap's appearance and behavior according to your preferences.
+
+3. **View Contributions**: Interact with the heatmap to view contributions details for specific days.
+
+## Technologies Used
+
+- [Svelte](https://svelte.dev/): The JavaScript framework used for building the web application.
+- [GitHub API](https://docs.github.com/en/rest): Used to fetch user information.
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to this project, please follow the [Contributing Guidelines](CONTRIBUTING.md).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
