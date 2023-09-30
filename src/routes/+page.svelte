@@ -9,7 +9,7 @@
 </svelte:head>
 
 <section>
-	<h1>Github Conributions</h1>
+	<h1>Github Contributions</h1>
 	<table>
 		{#each data.data as row}
 			<tr>
@@ -31,13 +31,14 @@
 
 	h1 {
 		width: 100%;
+    color: white;
 	}
 
 	td {
 		padding: 0.4rem;
 		border-radius: 2px;
     &[data-level="0"] {
-      background-color: white;
+      background-color: #2c333b;
     }
     &[data-level="1"] {
       background-color: #00442a;

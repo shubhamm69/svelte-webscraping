@@ -9,12 +9,8 @@ export async function GET({ params }) {
 	}
 	const html = await res.text();
 	const headers = new Headers();
-	headers.set(
-		'Access-Control-Allow-Origin', '*',
-	);
-	headers.set(
-		'Cache-Control', 'max-age=0, s-maxage=31536000',
-	);
+	headers.set('Access-Control-Allow-Origin', '*');
+	headers.set('Cache-Control', 'max-age=0, s-maxage=31536000');
 	const dom = new jsdom.JSDOM(html);
 	const document = dom.window.document;
 	const rows = document.querySelectorAll('tbody > tr');
