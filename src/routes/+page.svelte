@@ -1,50 +1,55 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import Counter from "./Counter.svelte";
-
-  onMount(async () => {
-    try {
-      const response = await fetch(
-        "https://github.com/users/mattcroat/contributions?from=2022-12-01&to=2022-12-31"
-      );
-      if (response.ok) {
-        // You can handle the response here
-        const data = await response.json();
-        console.log(data);
-      } else {
-        console.error(
-          "Failed to fetch data:",
-          response.status,
-          response.statusText
-        );
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  });
+	export let data;
+	console.log(data.data);
 </script>
 
 <svelte:head>
-  <title>Github Scraping</title>
-  <meta name="Webscraping" content="svelte webscraping" />
+	<title>Github Scraping</title>
+	<meta name="Webscraping" content="svelte webscraping" />
 </svelte:head>
 
 <section>
-  <h1>Github Conributions</h1>
-  <Counter />
+	<h1>Github Conributions</h1>
+	<table>
+		{#each data.data as row}
+			<tr>
+				{#each row as day}
+					<td data-level={day?.level} />
+				{/each}
+			</tr>{/each}
+	</table>
 </section>
 
 <style>
-  section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 0.6;
-  }
+	section {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		flex: 0.6;
+	}
 
-  h1 {
-    width: 100%;
-  }
+	h1 {
+		width: 100%;
+	}
 
+	td {
+		padding: 0.4rem;
+		border-radius: 2px;
+    &[data-level="0"] {
+      background-color: white;
+    }
+    &[data-level="1"] {
+      background-color: #00442a;
+    }
+    &[data-level="2"] {
+      background-color: #006d35;
+    }
+    &[data-level="3"] {
+      background-color: #00a648; 
+    }
+    &[data-level="4"] {
+      background-color: #00d35c;
+    }
+  }
 </style>
