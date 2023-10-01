@@ -8,7 +8,8 @@
 	</main>
 
 	<footer>
-		<p> copyright © Shubham Singh 2023 <p>
+		<p>copyright © Shubham Singh 2023</p>
+		<p></p>
 	</footer>
 </div>
 
@@ -36,10 +37,6 @@
 		justify-content: center;
 		align-items: center;
 		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
 	}
 
 	@media (min-width: 480px) {
