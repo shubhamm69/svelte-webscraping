@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -3 30 30">
+<svg
+	class="w-6 h-6 text-gray-500"
+	aria-hidden="true"
+	xmlns="http://www.w3.org/2000/svg"
+	fill="currentColor"
+	viewBox="0 0 25 25"
+>
 	<path
 		fill-rule="evenodd"
 		clip-rule="evenodd"

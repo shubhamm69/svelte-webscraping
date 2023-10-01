@@ -21,7 +21,7 @@
 body {
 	min-height: 100vh;
 	margin: 0;
-	background-color: black;
+	background-color: #24292e;
 }
 
 h1,
@@ -103,18 +103,6 @@ button:focus:not(:focus-visible) {
 label {
 	@apply block;
 }
-
-/* input[type='text'],
-input[type='email'],
-input[type='number'],
-input[type='date'],
-input[type='file'],
-input[type='password'],
-input[type='checkbox'],
-textarea,
-select {
-	@apply mt-1 block w-full bg-white;
-} */
 
 button {
 	@apply px-4 py-2 rounded cursor-pointer transition duration-200;

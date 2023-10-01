@@ -2,46 +2,11 @@
 	import './styles.css';
 </script>
 
-<div class="app">
-	<main>
+<div class="flex flex-col min-h-screen max-h-max">
+	<main class="flex-1 flex flex-col p-4 w-full max-w-4xl mx-auto">
 		<slot />
 	</main>
-
-	<footer>
-		<p>copyright © Shubham Singh 2023</p>
-		<p></p>
+	<footer class="text-center text-white py-3">
+		<p>&copy; Shubham Singh 2023</p>
 	</footer>
 </div>
-
-<style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
-	}
-</style>

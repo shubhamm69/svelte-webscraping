@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 const schema = z.object({
-	name: z.string().min(3).max(50),
+	name: z.string().refine((value) => (value[0] === '@' ? value.slice(1) : value)),
 	year: z.number().min(2019).max(2023)
 });
 
@@ -11,7 +11,6 @@ export const actions = {
 			const formData = await event.request.formData();
 			const name = formData.get('name');
 			const year = Number(formData.get('year'));
-			console.log(name, year);
 			const parseData = {
 				name: name,
 				year: year
@@ -25,7 +24,8 @@ export const actions = {
 				};
 			}
 			try {
-				const response = await event.fetch(`/${name}/${year}`);
+				const cleanedName = name ? name.toString().replace(/^@/, '') : '';
+				const response = await event.fetch(`/${cleanedName}/${year}`);
 				if (!response.ok) {
 					throw new Error(`Failed to fetch data: ${response.status} ${response.statusText}`);
 				}
@@ -35,7 +35,6 @@ export const actions = {
 					parseData: parseData
 				};
 			} catch (error) {
-				console.error(error);
 				return { error: 'Failed to fetch data' };
 			}
 		} catch (e) {

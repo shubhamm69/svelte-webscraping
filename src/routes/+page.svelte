@@ -1,7 +1,7 @@
 <script lang="ts">
+	import Github from '$lib/images/Github.svelte';
 	import type { ActionData } from './$types.js';
 	export let form: ActionData | null = null;
-	console.log(form);
 	let { name = '', year = '' } = form?.parseData || {};
 	let errorArray: any[] = form?.error ? JSON.parse(form.error) : [];
 	function findError(path: string): any | undefined {
@@ -17,32 +17,20 @@
 </svelte:head>
 
 <section class="flex flex-col justify-center items-center w-full mt-12">
-	<h1 class="text-2xl font-semibold text-gray-900 dark:text-white mb-8">Github Contributions</h1>
-	<form class="w-1/2" method="POST">
-		<label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-			>Username</label
-		>
+	<h1 class="text-2xl font-semibold text-white mb-8">Github Contributions</h1>
+	<form class="w-full md:w-1/2 px-4" method="POST">
+		<label for="name" class="block mb-2 text-sm font-medium text-white">Username</label>
 		<div class="flex mb-4">
 			<span
-				class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+				class="inline-flex items-center px-3 text-sm border border-r-0 rounded-l-md bg-gray-600 text-gray-400 border-gray-600"
 			>
-				<svg
-					class="w-4 h-4 text-gray-500 dark:text-gray-400"
-					aria-hidden="true"
-					xmlns="http://www.w3.org/2000/svg"
-					fill="currentColor"
-					viewBox="0 0 20 20"
-				>
-					<path
-						d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"
-					></path>
-				</svg>
+				<Github />
 			</span>
 			<input
 				name="name"
 				type="text"
 				bind:value={name}
-				class="rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+				class="rounded-none rounded-r-lg border block flex-1 min-w-0 w-full text-sm p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
 				placeholder="@github-username"
 				required
 			/>
@@ -51,14 +39,12 @@
 			{/if}
 		</div>
 		<div class="mb-4">
-			<label for="year" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-				>Select Year</label
-			>
+			<label for="year" class="block mb-2 text-sm font-medium text-white">Select Year</label>
 			<select
 				name="year"
 				bind:value={year}
 				required
-				class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+				class=" text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
 			>
 				<option selected>Select Year</option>
 				{#each [2023, 2022, 2021, 2020, 2019] as option}
@@ -72,18 +58,18 @@
 
 		<div class="my-8">
 			<button
-				class="w-full bg-green-500 text-gray-50 hover:bg-green-600 transition duration-200 dark:bg-green-600 dark:hover:bg-green-500"
+				class="w-full bg-[#2dba4e] text-gray-50 hover:bg-green-600 transition duration-200"
 				type="submit">Submit</button
 			>
 		</div>
 	</form>
 	<section class="flex justify-center items-center w-full mt-12">
-		<table class="w-full max-w-4xl mx-auto">
+		<table class="w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2">
 			{#if form != null}
 				{#each form.data as row}
 					<tr>
 						{#each row as day}
-							<td class="p-2 border-2 border-black rounded" data-level={day?.level} />
+							<td class="p-2 border-2 border-gray-500 rounded" data-level={day?.level} />
 						{/each}
 					</tr>
 				{/each}
